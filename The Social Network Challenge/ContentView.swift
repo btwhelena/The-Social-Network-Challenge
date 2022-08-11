@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  The Social Network Challenge
-//
-//  Created by Helena Oliveira on 11/08/22.
-//
-
 import SwiftUI
 
 struct ContentView: View {

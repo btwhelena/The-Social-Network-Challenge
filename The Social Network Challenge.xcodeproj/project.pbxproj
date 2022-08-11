@@ -14,6 +14,8 @@
 		0D108C4128A51B2100E07221 /* The_Social_Network_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D108C4028A51B2100E07221 /* The_Social_Network_ChallengeTests.swift */; };
 		0D108C4B28A51B2100E07221 /* The_Social_Network_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D108C4A28A51B2100E07221 /* The_Social_Network_ChallengeUITests.swift */; };
 		0D108C4D28A51B2100E07221 /* The_Social_Network_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D108C4C28A51B2100E07221 /* The_Social_Network_ChallengeUITestsLaunchTests.swift */; };
+		0D108C5D28A51B8900E07221 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D108C5C28A51B8900E07221 /* API.swift */; };
+		0D108C5F28A51BA900E07221 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D108C5E28A51BA900E07221 /* PostModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		0D108C4628A51B2100E07221 /* The Social Network ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Social Network ChallengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D108C4A28A51B2100E07221 /* The_Social_Network_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_Social_Network_ChallengeUITests.swift; sourceTree = "<group>"; };
 		0D108C4C28A51B2100E07221 /* The_Social_Network_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_Social_Network_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0D108C5C28A51B8900E07221 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		0D108C5E28A51BA900E07221 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 			children = (
 				0D108C2F28A51B2000E07221 /* The_Social_Network_ChallengeApp.swift */,
 				0D108C3128A51B2000E07221 /* ContentView.swift */,
+				0D108C5B28A51B7E00E07221 /* Services */,
+				0D108C5928A51B7100E07221 /* Models */,
 				0D108C3328A51B2100E07221 /* Assets.xcassets */,
 				0D108C3528A51B2100E07221 /* Preview Content */,
 			);
@@ -125,6 +131,22 @@
 				0D108C4C28A51B2100E07221 /* The_Social_Network_ChallengeUITestsLaunchTests.swift */,
 			);
 			path = "The Social Network ChallengeUITests";
+			sourceTree = "<group>";
+		};
+		0D108C5928A51B7100E07221 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0D108C5E28A51BA900E07221 /* PostModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0D108C5B28A51B7E00E07221 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0D108C5C28A51B8900E07221 /* API.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +280,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D108C3228A51B2000E07221 /* ContentView.swift in Sources */,
+				0D108C5F28A51BA900E07221 /* PostModel.swift in Sources */,
+				0D108C5D28A51B8900E07221 /* API.swift in Sources */,
 				0D108C3028A51B2000E07221 /* The_Social_Network_ChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
