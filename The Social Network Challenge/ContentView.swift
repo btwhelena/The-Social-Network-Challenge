@@ -6,11 +6,16 @@ struct ContentView: View {
         Text("Hello, world!")
             .padding()
             .task {
-                let users = await API.getAllUsers()
-                for i in 0...users.count {
-                    print(users[i])
+//                let post = await API.getAllPosts()
+//                for i in 0...post.count {
+//                    print(post[i])
+//                }
+                //await API.createUser()
+                let user = await API.getAllUsers()
+                for i in 0...user.count {
+                    print("------- Users --------")
+                    print(user[i])
                 }
-                
             }
     }
 }

@@ -20,13 +20,15 @@ class API{
     static func createUser() async -> Bool{
         var urlRequest = URLRequest(url: URL(string: "http://adaspace.local/users")!)
         urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        
         do{
             urlRequest.httpBody = try JSONEncoder().encode(User(name: "Hanah",
                                                                 email: "hanah.santana6@gmail.com",
                                                                 password: "bolodemurango"))
-            let (_, response) = try await URLSession.shared.data(for: urlRequest)
+            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let stringResponse = String(data: data, encoding: .utf8)!
+            print(stringResponse)
             if let responseHeader = response as? HTTPURLResponse {
                 return (responseHeader.statusCode == 200)
             }
@@ -53,13 +55,13 @@ class API{
 //        }
     }
     
-    static func getAllUsers() async -> [User] {
+    static func getAllUsers() async -> [GetUser] {
         var urlRequest = URLRequest(url: URL(string: "http://adaspace.local/users")!)
         urlRequest.httpMethod = "GET"
         
         do {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
-            let allUsersDecoded = try JSONDecoder().decode([User].self, from: data)
+            let allUsersDecoded = try JSONDecoder().decode([GetUser].self, from: data)
             
             return allUsersDecoded
         } catch {

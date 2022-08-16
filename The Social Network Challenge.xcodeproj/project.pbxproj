@@ -17,6 +17,7 @@
 		0D108C5D28A51B8900E07221 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D108C5C28A51B8900E07221 /* API.swift */; };
 		0D108C5F28A51BA900E07221 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D108C5E28A51BA900E07221 /* PostModel.swift */; };
 		0D108C6128A523AA00E07221 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D108C6028A523AA00E07221 /* UserModel.swift */; };
+		281C79D628ABB6CA0036A3B4 /* GetUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281C79D528ABB6CA0036A3B4 /* GetUserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		0D108C5C28A51B8900E07221 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		0D108C5E28A51BA900E07221 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		0D108C6028A523AA00E07221 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		281C79D528ABB6CA0036A3B4 /* GetUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				0D108C5E28A51BA900E07221 /* PostModel.swift */,
 				0D108C6028A523AA00E07221 /* UserModel.swift */,
+				281C79D528ABB6CA0036A3B4 /* GetUserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				0D108C3228A51B2000E07221 /* ContentView.swift in Sources */,
 				0D108C5F28A51BA900E07221 /* PostModel.swift in Sources */,
 				0D108C5D28A51B8900E07221 /* API.swift in Sources */,
+				281C79D628ABB6CA0036A3B4 /* GetUserModel.swift in Sources */,
 				0D108C6128A523AA00E07221 /* UserModel.swift in Sources */,
 				0D108C3028A51B2000E07221 /* The_Social_Network_ChallengeApp.swift in Sources */,
 			);
