@@ -17,44 +17,6 @@ class API{
         return []
     }
     
-    static func createUser() async -> Bool{
-        var urlRequest = URLRequest(url: URL(string: "http://adaspace.local/users")!)
-        urlRequest.httpMethod = "POST"
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        do{
-            urlRequest.httpBody = try JSONEncoder().encode(User(name: "Hanah",
-                                                                email: "hanah.santana6@gmail.com",
-                                                                password: "bolodemurango"))
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
-            let stringResponse = String(data: data, encoding: .utf8)!
-            print(stringResponse)
-            if let responseHeader = response as? HTTPURLResponse {
-                return (responseHeader.statusCode == 200)
-            }
-        }
-        catch{
-            print(error)
-        }
-        return false
-        
-        //let userData: Data? = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
-        //urlRequest.httpBody = userData
- 
-        
-//        let string = "{\"key\": \"value\"}"
-//        let data = string.data(using: .utf8)!
-//        if let json: [String : Any] = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
-//            print(json)
-//            print(json["key"])
-//        }
-        
-//        do{
-//            let (_, response) = try await URLSession.shared.data(for: urlRequest)
-//
-//        }
-    }
-    
     static func getAllUsers() async -> [GetUser] {
         var urlRequest = URLRequest(url: URL(string: "http://adaspace.local/users")!)
         urlRequest.httpMethod = "GET"
@@ -68,6 +30,79 @@ class API{
             print(error)
         }
         return []
+    }
+    
+    static func createUser(name: String, email: String,password: String) async -> UserSession?{
+        var urlRequest = URLRequest(url: URL(string: "http://adaspace.local/users")!)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body: [String:Any] = ["name": name, "email": email, "password": password]
+        
+        urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: body)
+        
+        do{
+//            urlRequest.httpBody = try JSONEncoder().encode(User(name: "Hanah",
+//                                                                email: "hanah.santana6@gmail.com",
+//                                                                password: "bolodemurango",
+//                                                                avatar: ""))
+            
+            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let userdata = try JSONDecoder().decode(UserSession.self, from: data)
+            
+            let stringResponse = String(data: data, encoding: .utf8)!
+            print(stringResponse)
+            return userdata
+        }
+        catch{
+            print(error)
+        }
+        return nil
+    }
+
+    
+    static func login(username:String, password:String) async -> UserSession? {
+        
+        let login: String = "\(username):\(password)"
+        let logindata = login.data(using: String.Encoding.utf8)!
+        let base64 = logindata.base64EncodedString()
+        
+        var urlRequest = URLRequest(url: URL(string: "http://adaspace.local/users/login")!)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("Basic \(base64)", forHTTPHeaderField: "Authorization")
+        
+        do{
+            
+            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let session = try JSONDecoder().decode(UserSession.self, from: data)
+            
+            let stringResponse = String(data: data, encoding: .utf8)!
+            print(stringResponse)
+            
+            print(session.token)
+            return session
+        }
+        catch{
+            print(error)
+        }
+        return nil
+    }
+    
+    static func logout(token: String) async -> UserSession?{
+        var urlRequest = URLRequest(url: URL(string: "http://adaspace.local/users/logout")!)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        do{
+            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let session = try JSONDecoder().decode(UserSession.self, from: data)
+            print("Logout Successful")
+            return session
+        }
+        catch{
+            print(error)
+        }
+        return nil
     }
 
 }
