@@ -19,6 +19,10 @@
 		0D108C6128A523AA00E07221 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D108C6028A523AA00E07221 /* UserModel.swift */; };
 		281C79D628ABB6CA0036A3B4 /* GetUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281C79D528ABB6CA0036A3B4 /* GetUserModel.swift */; };
 		281C79D828ABCE340036A3B4 /* UserSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281C79D728ABCE340036A3B4 /* UserSessionModel.swift */; };
+		28821E6328AD0E64003B5E51 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28821E6228AD0E64003B5E51 /* LoginView.swift */; };
+		28821E6528AD0E84003B5E51 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28821E6428AD0E84003B5E51 /* FeedView.swift */; };
+		28821E6728AD0EA2003B5E51 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28821E6628AD0EA2003B5E51 /* ProfileView.swift */; };
+		28821E6928AD0EC9003B5E51 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28821E6828AD0EC9003B5E51 /* SignInView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		0D108C6028A523AA00E07221 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		281C79D528ABB6CA0036A3B4 /* GetUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserModel.swift; sourceTree = "<group>"; };
 		281C79D728ABCE340036A3B4 /* UserSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionModel.swift; sourceTree = "<group>"; };
+		28821E6228AD0E64003B5E51 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		28821E6428AD0E84003B5E51 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		28821E6628AD0EA2003B5E51 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		28821E6828AD0EC9003B5E51 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,7 @@
 				0D108C2F28A51B2000E07221 /* The_Social_Network_ChallengeApp.swift */,
 				0D108C3128A51B2000E07221 /* ContentView.swift */,
 				0D108C5B28A51B7E00E07221 /* Services */,
+				28821E6128AD0E49003B5E51 /* Views */,
 				0D108C5928A51B7100E07221 /* Models */,
 				0D108C3328A51B2100E07221 /* Assets.xcassets */,
 				0D108C3528A51B2100E07221 /* Preview Content */,
@@ -156,6 +165,17 @@
 				0D108C5C28A51B8900E07221 /* API.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		28821E6128AD0E49003B5E51 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28821E6228AD0E64003B5E51 /* LoginView.swift */,
+				28821E6828AD0EC9003B5E51 /* SignInView.swift */,
+				28821E6428AD0E84003B5E51 /* FeedView.swift */,
+				28821E6628AD0EA2003B5E51 /* ProfileView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,11 +309,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D108C3228A51B2000E07221 /* ContentView.swift in Sources */,
+				28821E6528AD0E84003B5E51 /* FeedView.swift in Sources */,
+				28821E6728AD0EA2003B5E51 /* ProfileView.swift in Sources */,
 				0D108C5F28A51BA900E07221 /* PostModel.swift in Sources */,
 				0D108C5D28A51B8900E07221 /* API.swift in Sources */,
 				281C79D628ABB6CA0036A3B4 /* GetUserModel.swift in Sources */,
 				281C79D828ABCE340036A3B4 /* UserSessionModel.swift in Sources */,
 				0D108C6128A523AA00E07221 /* UserModel.swift in Sources */,
+				28821E6328AD0E64003B5E51 /* LoginView.swift in Sources */,
+				28821E6928AD0EC9003B5E51 /* SignInView.swift in Sources */,
 				0D108C3028A51B2000E07221 /* The_Social_Network_ChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,10 +2,11 @@ import SwiftUI
 import Foundation
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
-            .task {
+    
+    var body: some View{
+    
+      Text("teste")
+//            .task {
 //                let post = await API.getAllPosts()
 //                for i in 0...post.count {
 //                    print(post[i])
@@ -17,16 +18,17 @@ struct ContentView: View {
 //                    print("------- Users --------")
 //                    print(user[i])
 //                }
-                
+//
 //                await API.login(username: "hanah.santana6@gmail.com", password: "bolodemurango")
-                
+//
 //                let token = "VHlmScgCC6XkkYqT1nui9g=="
-                let token = "VHlmScgCC6XkkYqT1nui9g=="
-                print(token)
-                await API.logout(token: token)
-            }
+//                let token = "VHlmScgCC6XkkYqT1nui9g=="
+//                print(token)
+//                await API.logout(token: token)
     }
+    
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
