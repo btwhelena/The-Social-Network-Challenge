@@ -79,7 +79,7 @@ class API{
             let stringResponse = String(data: data, encoding: .utf8)!
             print(stringResponse)
             
-            print(session.token)
+            //print(session.token)
             return session
         }
         catch{
@@ -96,6 +96,8 @@ class API{
         do{
             let (data, response) = try await URLSession.shared.data(for: urlRequest)
             let session = try JSONDecoder().decode(UserSession.self, from: data)
+            let stringResponse = String(data: data, encoding: .utf8)!
+            print(stringResponse)
             print("Logout Successful")
             return session
         }
