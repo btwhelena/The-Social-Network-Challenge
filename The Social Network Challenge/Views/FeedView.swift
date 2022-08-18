@@ -4,37 +4,18 @@ struct FeedView: View {
     
     @State var posts: [Post] = []
     @State var showSheet = false
-    //@State var textEditor:String = ""
     
     var body: some View {
         VStack{
-            HStack{
-                
-                Button("Postar"){
-                    showSheet = true
-                }
-                .sheet(isPresented: $showSheet,
-                       onDismiss: {print("dismissed")},
-                       content: {ExampleSheet()})
-                
-                .buttonStyle(.borderedProminent)
-                .controlSize(.regular)
-                .padding(.top, 25)
-                
-
-                
-                                NavigationLink(
-                                    destination: {ProfileView()
-                
-                                    },
-                                    label: {
-                                        Image("avatar_img")
-                                            .resizable()
-                                            .frame(width: 50, height: 50, alignment: .trailing)
-                                    }
-                                )
-                
+            Button("Postar"){
+                showSheet = true
             }
+            .sheet(isPresented: $showSheet,
+                   onDismiss: {print("dismissed")},
+                   content: {ExampleSheet()})
+            
+            .buttonStyle(.borderedProminent)
+            .controlSize(.regular)
             List {
                 ForEach(posts) { post in
                     HStack{
@@ -42,13 +23,6 @@ struct FeedView: View {
                             .resizable()
                             .frame(width: 50, height: 50, alignment: .topLeading)
                         Text(post.content)
-                        
-                        VStack{
-                            
-                            //NOME
-                            //DATA
-                            //POST
-                        }
                     }
                 }
             }

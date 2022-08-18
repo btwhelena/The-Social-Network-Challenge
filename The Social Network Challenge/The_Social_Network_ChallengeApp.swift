@@ -11,7 +11,7 @@ import SwiftUI
 struct The_Social_Network_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            FeedView()
+            ContentView()
         }
     }
 }

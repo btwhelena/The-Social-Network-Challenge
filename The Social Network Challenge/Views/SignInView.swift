@@ -59,7 +59,8 @@ struct SignInView: View {
                 Button("Cadastre-se", action: {
                     //if
                     Task {
-                        await API.createUser(name: name, email: email, password: password)                    }
+                        await API.createUser(name: name, email: email, password: password)
+                    }
                 })
                 .buttonStyle(.borderedProminent)
                 .controlSize(.regular)

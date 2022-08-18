@@ -5,7 +5,7 @@ struct ContentView: View {
     
     var body: some View{
     
-      Text("teste")
+      Text("Seja bem viados a Tela de Teste 🚧")
            .task {
 //                let post = await API.getAllPosts()
 //                for i in 0...post.count {
