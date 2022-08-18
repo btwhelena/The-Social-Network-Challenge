@@ -6,7 +6,7 @@ struct ContentView: View {
     var body: some View{
     
       Text("teste")
-//            .task {
+           .task {
 //                let post = await API.getAllPosts()
 //                for i in 0...post.count {
 //                    print(post[i])
@@ -22,9 +22,13 @@ struct ContentView: View {
 //                await API.login(username: "hanah.santana6@gmail.com", password: "bolodemurango")
 //
 //                let token = "VHlmScgCC6XkkYqT1nui9g=="
-//                let token = "VHlmScgCC6XkkYqT1nui9g=="
+//                let token = "yuE0L2ReOsVMUlFLK6jTOA=="
 //                print(token)
 //                await API.logout(token: token)
+
+//            .task {
+//                await API.createPost(content: "bolo de murango hmmm")
+            }
     }
     
 }

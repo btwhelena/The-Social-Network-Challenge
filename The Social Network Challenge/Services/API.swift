@@ -9,7 +9,6 @@ class API{
         do {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
             let allPostsDecoded = try JSONDecoder().decode([Post].self, from: data)
-            
             return allPostsDecoded
         } catch {
             print(error)
@@ -24,7 +23,6 @@ class API{
         do {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
             let allUsersDecoded = try JSONDecoder().decode([GetUser].self, from: data)
-            
             return allUsersDecoded
         } catch {
             print(error)
@@ -32,7 +30,7 @@ class API{
         return []
     }
     
-    static func createUser(name: String, email: String,password: String) async -> UserSession?{
+    static func createUser(name: String, email: String, password: String) async -> UserSession?{
         var urlRequest = URLRequest(url: URL(string: "http://adaspace.local/users")!)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -42,12 +40,7 @@ class API{
         urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: body)
         
         do{
-//            urlRequest.httpBody = try JSONEncoder().encode(User(name: "Hanah",
-//                                                                email: "hanah.santana6@gmail.com",
-//                                                                password: "bolodemurango",
-//                                                                avatar: ""))
-            
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
             let userdata = try JSONDecoder().decode(UserSession.self, from: data)
             
             let stringResponse = String(data: data, encoding: .utf8)!
@@ -73,13 +66,17 @@ class API{
         
         do{
             
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
             let session = try JSONDecoder().decode(UserSession.self, from: data)
-            
             let stringResponse = String(data: data, encoding: .utf8)!
             print(stringResponse)
             
             //print(session.token)
+            
+            // Persistir Token
+            // UserDefaults (pra estudar, nao é boa pratica)
+            // Keychain!!!!11111! (Segura!!) link muito bom que a lais mandou no #codigo :D
+            
             return session
         }
         catch{
@@ -94,7 +91,7 @@ class API{
         urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         do{
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
             let session = try JSONDecoder().decode(UserSession.self, from: data)
             let stringResponse = String(data: data, encoding: .utf8)!
             print(stringResponse)
@@ -106,5 +103,27 @@ class API{
         }
         return nil
     }
-
+    
+    static func createPost(content: String, token: String) async -> Post?{
+        var urlRequest = URLRequest(url: URL(string: "http://adaspace.local/posts")!)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        urlRequest.setValue("text/plain", forHTTPHeaderField: "Content-Type")
+        urlRequest.httpBody = content.data(using: .utf8)!
+        
+        do{
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
+            
+            let stringResponse = String(data: data, encoding: .utf8)!
+            print(stringResponse)
+            
+            let userdata = try JSONDecoder().decode(Post.self, from: data)
+            
+            return userdata
+        }
+        catch{
+            print(error)
+        }
+        return nil
+    }
 }

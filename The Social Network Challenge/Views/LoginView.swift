@@ -4,6 +4,7 @@ struct LoginView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
+    @State var isPresenting = false
     
     var body: some View {
         NavigationView{
@@ -18,10 +19,13 @@ struct LoginView: View {
                     Text("E-mail")
                         .font(.system(size: 16))
                         .padding(.trailing, 250)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
                     
                     
                     TextField("example@email.com",
                               text: $email)
+                    .autocapitalization(.none)
                     .disableAutocorrection(true)
                     .frame(width: 300, height: 20, alignment: .center)
                     .textFieldStyle(.roundedBorder)
@@ -44,13 +48,20 @@ struct LoginView: View {
                 Button("Login", action: {
                     //if
                     Task {
-                        await API.login(username: email, password: password)
+                        if let session = await API.login(username: email, password: password) {
+                            isPresenting.toggle()
+                            // UserDefaults
+                        }
                     }
                 })
                 .buttonStyle(.borderedProminent)
                 .controlSize(.regular)
                 .padding(.top, 25)
+                
+                NavigationLink("", isActive: $isPresenting, destination: { FeedView() })
+
             }.padding(.bottom, 150)
+        
         }
     }
 }
